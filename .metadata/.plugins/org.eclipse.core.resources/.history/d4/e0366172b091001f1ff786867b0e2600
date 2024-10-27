@@ -1,0 +1,34 @@
+import java.util.Stack;
+
+public class BracketMatcher {
+    // 方法：檢查括號是否匹配
+    public static boolean isValid(String s) {
+        // 建立一個堆疊來存儲左括號
+        Stack<Character> stack = new Stack<>();
+
+        // 遍歷字串中的每個字符
+        for (char c : s.toCharArray()) {
+            // 如果是左括號，壓入堆疊
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } 
+            // 如果是右括號，檢查是否有對應的左括號
+            else if (c == ')' || c == '}' || c == ']') {
+                // 如果堆疊為空，表示缺少左括號，直接返回 false
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                // 取出堆疊頂端的左括號
+                char top = stack.pop();
+                // 檢查是否匹配
+                if ((c == ')' && top != '(') ||
+                    (c == '}' && top != '{') ||
+                    (c == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+        
+        // 如果最後堆疊為空，表示括號完全匹配；否則返回 false
+        return stack.isEmpty();
+    }
