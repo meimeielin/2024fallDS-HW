@@ -16,8 +16,8 @@ public class Main {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Please input the test file name.");
 		String filename = s.next();
+		//filename = "src/" + filename;
 		File file = new File(filename);
-
 		s.close();
 		Scanner sc = new Scanner(file);
 		KeywordList kLst = new KeywordList();

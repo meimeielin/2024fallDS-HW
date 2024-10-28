@@ -24,14 +24,7 @@ public class KeywordList {
 		
 		
 		lst.add(addindex, keyword);
-		
-		/*System.out.println("***");
-		//printKeywordList(lst) : check if elements are sorted 
-		for(Keyword k: lst) {
-			System.out.println(k.toString());
-		}
-		System.out.println("***");
-		*/
+		//printKeywordList(lst);		
 						
 	}
 	
@@ -42,21 +35,25 @@ public class KeywordList {
 		}
 		
 		LinkedList<Keyword> results = new LinkedList<>();
-		Keyword k = lst.get(i - 1);		    
+		Keyword k = lst.get(i);		    
 		results.add(k);		    		
 		printKeywordList(results);
 	}
 		
 	public void outputCount(int c){
 		// 2. output all keywords whose keyword is equal to c
-		
-		for(Keyword k: lst) {
-			if(k.getCount() == c) {
-				System.out.print(k.toString()+ " ");
-			}
+		LinkedList<Keyword> results = new LinkedList<>();
+		for(int i = 0; i < lst.size(); i++){
+		    Keyword k = lst.get(i);
+		    if(k.getCount() == c){
+		    	results.add(k);
+		    }
 		}
-		
-		System.out.println();
+		if(results.isEmpty()){
+		    System.out.println("NotFound");
+		}else{
+		    printKeywordList(results);
+		}
 		
 	}
 	

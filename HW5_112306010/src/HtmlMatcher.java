@@ -49,7 +49,7 @@ public class HtmlMatcher {
 			String tagName = null;
 			int indexOfSpace = -1;
 
-			if((indexOfSpace=fullTag.indexOf(" "))==-1){
+			if((indexOfSpace = fullTag.indexOf(" "))==-1){
 				/*	If there is no space in the fullTag (e.g. "<li>","</a>","</div>") 
 					then the tag name will be the words between first and last character.
 					For example, if  fullTag is "<li>" then the tagName will be "li";
