@@ -42,8 +42,8 @@ public class HtmlMatcher {
  		
 		while((indexOfOpen = content.indexOf("<",indexOfOpen))!=-1){
 			// 1. Get full tag. e.g. "<div id="abcdefg">","</a>","</div>"...
-//			int indexOfClose = 
-//			String fullTag = 
+			int indexOfClose = content.indexOf(">",indexOfOpen);
+			String fullTag = content.substring(indexOfOpen, indexOfClose + 1);
 			
 			// Extract tag name from fullTag. e.g. "div","/a","/div"...
 			String tagName = null;
@@ -56,7 +56,7 @@ public class HtmlMatcher {
 					For example, if fullTag is  "</li>" then the tagName will be "/li" (Note that we preserve the slash'/' so we can tell that this is a close tag in the future)*/
 				
 				// 2.Get the tagName from no space in the fullTag
-//				tagName = 
+				tagName = fullTag.substring(1, fullTag.length() - 1);
 			}
 			else {
 				/*  If there are some space in the fullTag (e.g "<li id='theID'>","<a href='http://www.google.com.tw/'>") 
@@ -65,7 +65,7 @@ public class HtmlMatcher {
 					For example, if fullTag is "<a href='http://www.google.com.tw/'>" the tagName will be "a" */
 				
 				// 3.Get the tagName from some space in the fullTag  
-//				tagName = 
+				tagName = fullTag.substring(1, indexOfSpace);
 			}
 			if(tagName.equals("meta") || tagName.equals("!doctype")) {
 				indexOfOpen = indexOfClose;
@@ -77,33 +77,35 @@ public class HtmlMatcher {
 			int indexOfSlash = -1;
 			if((indexOfSlash = tagName.indexOf("/"))==-1){
 				// 4.an open tag
+				tagStack.push(tagName);
 			}
-			else{  	
-				// 5.an close tag
-
-
-			    // But...what if there is no topmost tag in the stack
+			else{
+				
+				// But...what if there is no topmost tag in the stack
 				if(tagStack.isEmpty()){
-				    // 6.stack is empty, this tag is an invalid tag
-
+				    // 6.stack is empty, this tag is an invalid tag					
+					    System.out.println("False " + tagName);
 				    return;
-				}				
+				}  	
+				// 5.an close tag 這個到底是要怎==
+				tagName = tagName.substring(indexOfSlash + 1);
+			    				
 				
 				// Compare to topmost tag in the stack
 				String topMostTag = tagStack.peek();
 				
 				if(topMostTag.equals(tagName)){
 					// 7.This tagName is equal to the tag name in the stack!
-
+					tagStack.pop();
 					
 				}else{
 					// 8.This tagName is not equal to the tag name in the stack!
-
+					System.out.println("False " + getStackString(tagStack));
 					return;
 				}
 			}			
 			// 9.Move the searching start point, so that we can search the next tag in htmlContent
-
+			indexOfOpen = indexOfClose + 1;
 		}		
 		
 		/*  After search and compare all the tag in the htmlContent,
