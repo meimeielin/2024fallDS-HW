@@ -4,7 +4,8 @@
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-22"/>
 	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo.comments" value="false"/>
 	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo" value="false"/>
-	<item key="org.eclipse.jdt.ui.last.external.project" value="/Users/elin/Documents/School/113-1/ds/2024fallDS-HW/HW4_{student_id}"/>
+	<item key="org.eclipse.jdt.ui.last.external.project" value="/Users/elin/Documents/School/113-1/ds/DS_WATB/demo1104"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="/Users/elin/Documents/School/113-1/ds"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -62,5 +63,8 @@
 		<item key="create_package_info_java" value="false"/>
 	</section>
 	<section name="BreadcrumbItemDropDown">
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="2"/>
 	</section>
 </section>

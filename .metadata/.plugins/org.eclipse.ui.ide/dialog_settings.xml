@@ -39,6 +39,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/Users/elin/Documents/School/113-1/ds/2024fallDS-HW/HW3_112306010_boyermoore"/>
+			<item value="/Users/elin/Documents/School/113-1/ds/DS_WATB/demo1104"/>
+			<item value="/Users/elin/Documents/School/113-1/ds/demo_watb"/>
 			<item value="/Users/elin/Documents/School/113-1/ds/2024fallDS-HW/HW5_112306010"/>
 		</list>
 		<section name="SmartImportWizard.dialogBounds">
